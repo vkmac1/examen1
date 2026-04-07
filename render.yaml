@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: examen1-productos
+    runtime: node
+    plan: free
+    buildCommand: corepack pnpm install
+    startCommand: corepack pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.15.0
+      - key: MONGODB_URI
+        sync: false

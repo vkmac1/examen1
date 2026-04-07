@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUD de Productos</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <p class="eyebrow">Pregunta 1 y 2</p>
+            <h1>Gestion de Productos</h1>
+            <p class="subtitle">Registra, edita y elimina productos usando Express y MongoDB.</p>
+          </div>
+          <span class="badge" id="modoFormulario">Creando</span>
+        </div>
+
+        <form id="productoForm" class="form-grid">
+          <input type="hidden" id="productoId" />
+
+          <label>
+            Nombre
+            <input type="text" id="nombre" placeholder="Ej. Laptop Lenovo" required />
+          </label>
+
+          <label>
+            Categoria
+            <select id="categoria" required>
+              <option value="">Seleccione una categoria</option>
+              <option value="Electronica">Electronica</option>
+              <option value="Ropa">Ropa</option>
+              <option value="Alimentos">Alimentos</option>
+            </select>
+          </label>
+
+          <label class="full-width">
+            Descripcion
+            <textarea id="descripcion" rows="3" placeholder="Describe el producto" required></textarea>
+          </label>
+
+          <label>
+            Precio
+            <input type="number" id="precio" min="0" step="0.01" placeholder="0.00" required />
+          </label>
+
+          <label>
+            Stock
+            <input type="number" id="stock" min="0" step="1" placeholder="0" required />
+          </label>
+
+          <div class="actions full-width">
+            <button type="submit" class="primary" id="submitButton">Guardar producto</button>
+            <button type="button" class="secondary" id="cancelEditButton" hidden>Cancelar edicion</button>
+          </div>
+        </form>
+
+        <p id="mensaje" class="message" role="status"></p>
+      </section>
+
+      <section class="card">
+        <div class="table-header">
+          <h2>Lista de productos</h2>
+          <button type="button" class="secondary" id="reloadButton">Actualizar tabla</button>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Categoria</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="productosBody">
+              <tr>
+                <td colspan="6" class="empty-state">Cargando productos...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
