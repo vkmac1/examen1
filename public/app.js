@@ -41,12 +41,12 @@ function renderProductos(productos) {
     .map(
       (producto) => `
         <tr>
-          <td>${producto.nombre}</td>
-          <td>${producto.descripcion}</td>
-          <td>S/ ${Number(producto.precio).toFixed(2)}</td>
-          <td>${producto.stock}</td>
-          <td>${producto.categoria}</td>
-          <td>
+          <td data-label="Nombre">${producto.nombre}</td>
+          <td data-label="Descripcion">${producto.descripcion}</td>
+          <td data-label="Precio">S/ ${Number(producto.precio).toFixed(2)}</td>
+          <td data-label="Stock">${producto.stock}</td>
+          <td data-label="Categoria">${producto.categoria}</td>
+          <td data-label="Acciones">
             <div class="row-actions">
               <button type="button" class="secondary" data-action="editar" data-id="${producto._id}">Editar</button>
               <button type="button" class="danger" data-action="eliminar" data-id="${producto._id}">Eliminar</button>

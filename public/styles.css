@@ -197,6 +197,7 @@ th {
 td .row-actions {
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .empty-state {
@@ -228,5 +229,67 @@ td .row-actions {
 
   .full-width {
     grid-column: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    width: 100%;
+  }
+
+  .badge {
+    align-self: flex-start;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: grid;
+    gap: 14px;
+  }
+
+  tr {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 8px 12px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  }
+
+  td {
+    border-bottom: none;
+    padding: 10px 0;
+  }
+
+  td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  td[data-label="Acciones"]::before {
+    margin-bottom: 10px;
+  }
+
+  .empty-state {
+    padding: 8px 0;
   }
 }
